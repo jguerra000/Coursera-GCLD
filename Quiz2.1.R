@@ -28,9 +28,10 @@ gtoken <- config(token = github_token)
 req <- GET("https://api.github.com/users/jtleek/repos", gtoken)
 
 #5 parse JSON
+library(jsonlite)
 content2 = content (req, as="parsed")
 tidy_data <- fromJSON(toJSON(content2))
-tidy_data$created_at[1]
+tidy_data$created_at[tidy_data$name == "datasharing"]
 ##Answer:
-##2013-08-28T18:18:50Z
+##"2013-11-07T13:25:07Z"
 

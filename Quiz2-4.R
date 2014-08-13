@@ -1,5 +1,6 @@
 #con = url ("http://biostat.jhsph.edu/~jleek/contact.html")
-con = url ("http://www.marca.com",  open="r")
+con = url ("file:///Users/jguerra/Downloads/search.htm")
+#con = url ("http://www.marca.com",  open="r")
 
 htmlCode = readLines(con)
 close(con)
@@ -9,4 +10,4 @@ nchar(htmlCode[30])
 nchar(htmlCode[100])
 
 #Answer:
-#Web page down
+#45 31 7 25
