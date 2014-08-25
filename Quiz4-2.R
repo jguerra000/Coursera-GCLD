@@ -9,7 +9,18 @@
 
 
 download.file("http://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FGDP.csv ", destfile = "./GDP_data.csv")
-GDP_data <- read.table( "./GDP_data.csv",    skip=5, , sep = "", 
-                            quote = "", na.strings="NA", fill=TRUE, nrows=231, colClasses = "character")
+data <- read.csv("./GDP_data.csv") 
+cleanedData <- gsub(",", "", data[5:194, 5])
+numData <- as.numeric(cleanedData)
+mean(numData)
+# 377652.4
 
+#Question 3 
+# In the data set from Question 2 what is a regular expression that 
+# would allow you to count the number of countries whose name begins with "United"? 
+# Assume that the variable with the country names in it is named countryNames. 
+# How many countries begin with United?
 
+countryNames <- data[5:194, 4]
+grep("^United", countryNames)
+# [1]  1  6 32
